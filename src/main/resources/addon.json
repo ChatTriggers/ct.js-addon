@@ -1,5 +1,6 @@
 {
-  "name":"Addon Example",
-  "version":"1.0",
-  "mainClass":"com.example.AddonExample"
+  "name":"ct.js-addon",
+  "version":"0.14-SNAPSHOT",
+  "mainClass":"com.chattriggers.ctjs.CTJS",
+  "mixinConfigs": ["ctjs.mixins.json"]
 }

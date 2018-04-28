@@ -1,5 +1,6 @@
 package com.chattriggers.ctjs.loader;
 
+import cc.hyperium.event.EventBus;
 import com.chattriggers.ctjs.minecraft.libs.ChatLib;
 import com.chattriggers.ctjs.minecraft.libs.FileLib;
 import com.chattriggers.ctjs.modules.Module;
@@ -10,7 +11,6 @@ import com.chattriggers.ctjs.utils.console.Console;
 import com.google.gson.Gson;
 import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.common.MinecraftForge;
 import org.apache.commons.io.FileUtils;
 
 import javax.script.Invocable;
@@ -191,7 +191,7 @@ public class JSScriptLoader extends ScriptLoader {
 
     @Override
     public void postLoad() {
-        MinecraftForge.EVENT_BUS.register(this);
+        EventBus.INSTANCE.register(this);
     }
 
     @Override

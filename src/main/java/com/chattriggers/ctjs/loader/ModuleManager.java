@@ -1,12 +1,12 @@
 package com.chattriggers.ctjs.loader;
 
+import cc.hyperium.event.EventBus;
 import com.chattriggers.ctjs.minecraft.libs.ChatLib;
 import com.chattriggers.ctjs.minecraft.objects.KeyBind;
 import com.chattriggers.ctjs.minecraft.objects.display.DisplayHandler;
 import com.chattriggers.ctjs.modules.Module;
 import com.chattriggers.ctjs.triggers.TriggerType;
 import lombok.Getter;
-import net.minecraftforge.common.MinecraftForge;
 
 import javax.script.ScriptException;
 import java.io.File;
@@ -56,7 +56,7 @@ public class ModuleManager {
 
     public void unload() {
         for (ScriptLoader sl : scriptLoaders) {
-            MinecraftForge.EVENT_BUS.unregister(sl);
+            EventBus.INSTANCE.unregister(sl);
         }
 
         scriptLoaders.clear();

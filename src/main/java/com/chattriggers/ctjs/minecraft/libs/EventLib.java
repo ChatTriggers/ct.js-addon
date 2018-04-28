@@ -1,5 +1,7 @@
 package com.chattriggers.ctjs.minecraft.libs;
 
+import cc.hyperium.event.MouseButtonEvent;
+import cc.hyperium.event.ServerChatEvent;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.MouseEvent;
@@ -24,8 +26,8 @@ public class EventLib {
      * @param event a MouseEvent
      * @return the state of the button true for pressed, false for unpressed
      */
-    public static Boolean getButtonState(MouseEvent event) {
-        return event.buttonstate;
+    public static Boolean getButtonState(MouseButtonEvent event) {
+        return event.;
     }
 
     /**
@@ -44,8 +46,8 @@ public class EventLib {
      * @param event a chat event
      * @return the type of the event, 0 for standard chat message, 1 for system message displayed as standard text
      */
-    public static int getType(ClientChatReceivedEvent event) {
-        return event.type;
+    public static int getType(ServerChatEvent event) {
+        return event.getType();
     }
 
     /**
@@ -54,8 +56,8 @@ public class EventLib {
      * @param event a chat event
      * @return the message from the event
      */
-    public static IChatComponent getMessage(ClientChatReceivedEvent event) {
-        return event.message;
+    public static IChatComponent getMessage(ServerChatEvent event) {
+        return event.getChat();
     }
 
     /**
@@ -66,15 +68,5 @@ public class EventLib {
      */
     public static String getName(PlaySoundEvent event) {
         return event.name;
-    }
-
-    /**
-     * Gets the Mod ID from a config changed event
-     *
-     * @param event a config changed event
-     * @return the mod id
-     */
-    public static String getModId(ConfigChangedEvent.OnConfigChangedEvent event) {
-        return event.modID;
     }
 }

@@ -20,7 +20,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.tweaker-client'
 apply plugin: 'java'
 apply plugin: "io.franzbecker.gradle-lombok"
-
+apply plugin: 'org.spongepowered.mixin'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -39,4 +39,8 @@ repositories {
 
 dependencies {
      compile 'com.github.HyperiumClient:Hyperium:master-SNAPSHOT'
+}
+
+mixin {
+    defaultObfuscationEnv notch
 }
