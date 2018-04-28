@@ -1,0 +1,42 @@
+group = 'com.chattriggers.ctjs'
+version = '0.14-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath "io.franzbecker:gradle-lombok:1.10"
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.tweaker-client'
+apply plugin: 'java'
+apply plugin: "io.franzbecker.gradle-lombok"
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+minecraft {
+    version = "1.8.9"
+    tweakClass = "cc.hyperium.launch.HyperiumTweaker"
+    mappings = "stable_20"
+    runDir = 'run'
+    makeObfSourceJar = true
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+     compile 'com.github.HyperiumClient:Hyperium:master-SNAPSHOT'
+}
